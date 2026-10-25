@@ -1,0 +1,335 @@
+/* -------------------- VARIABLES DE COLORES -------------------- */
+:root {
+    --azul-oscuro: #0f1b2d;
+    --azul-medio: #1c2e4a;
+    --naranja: #f28c28;
+    --gris-claro: #f2f4f7;
+    --blanco: #ffffff;
+}
+
+/* -------------------- ESTILOS GENERALES -------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background-color: var(--gris-claro);
+    color: var(--azul-oscuro);
+    min-width: 1000px;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Manrope", sans-serif;
+}
+
+/* -------------------- ENCABEZADO -------------------- */
+.encabezado {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    background: linear-gradient(135deg, rgba(28, 46, 74, 0.7), rgba(15, 27, 45, 0.8));
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.nombre-web {
+    font-family: "Manrope", sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--blanco);
+}
+
+.menu {
+    display: flex;
+    gap: 30px;
+}
+
+.menu a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.menu a:hover {
+    color: var(--naranja);
+}
+
+/* -------------------- BANNER -------------------- */
+.banner {
+    min-height: 550px;
+    padding: 40px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--blanco);
+    background:
+        linear-gradient(rgba(15, 27, 45, 0.6), rgba(15, 27, 45, 0.6)),
+        url("assets/hero.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.banner h1 {
+    font-size: 56px;
+    margin-bottom: 10px;
+}
+
+.banner p {
+    font-size: 20px;
+}
+
+.banner-botones {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    margin-top: 70px;
+}
+
+.boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 440px;
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 600;
+    border: 2px solid var(--naranja);
+    border-radius: 10px;
+    background-color: var(--azul-oscuro);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.boton-superdeportivos {
+    background-image:
+        linear-gradient(rgba(15, 27, 45, 0.3), rgba(15, 27, 45, 0.3)),
+        url("assets/AstonmartinBanner.jpg");
+}
+
+.boton-nobles {
+    background-image:
+        linear-gradient(rgba(15, 27, 45, 0.3), rgba(15, 27, 45, 0.3)),
+        url("assets/CorollaBanner.jpg");
+}
+
+.boton:hover {
+    transform: scale(1.15);
+    border-color: var(--blanco);
+}
+
+/* -------------------- SECCIONES -------------------- */
+.seccion {
+    position: relative;
+    z-index: 0;
+    padding: 70px 8%;
+    scroll-margin-top: 80px;
+    color: var(--blanco);
+}
+
+.video-fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.seccion::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 27, 45, 0.4);
+    z-index: -1;
+}
+
+.titulo-seccion {
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+.texto-seccion {
+    margin-bottom: 40px;
+}
+
+.titulo-seccion,
+.texto-seccion {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* -------------------- GRILLA DE AUTOS -------------------- */
+.grilla-autos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* -------------------- TARJETAS DE LOS AUTOS -------------------- */
+.tarjeta-auto {
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+    cursor: pointer;
+    background: linear-gradient(135deg, rgba(28, 46, 74, 0.7), rgba(15, 27, 45, 0.7));
+    border: 2px solid var(--naranja);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.foto-auto {
+    width: 100%;
+    height: 100%;
+}
+
+.foto-auto img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 15px 15px 55px;
+    object-fit: contain;
+    transition: transform 0.4s;
+}
+
+.tarjeta-auto:hover .foto-auto img {
+    transform: scale(1.15);
+}
+
+.tarjeta-auto h3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    font-size: 20px;
+    color: var(--blanco);
+    background: linear-gradient(transparent, rgba(15, 27, 45, 0.9));
+}
+
+/* -------------------- PIE DE PÁGINA -------------------- */
+.pie-de-pagina {
+    padding: 25px;
+    text-align: center;
+    background-color: var(--azul-oscuro);
+    color: var(--blanco);
+}
+
+/*-------------------- VENTANA EMERGENTE --------------------*/
+
+.ventana-emergente {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s, visibility 0.4s;
+}
+
+.ventana-emergente.abierto {
+    opacity: 1;
+    visibility: visible;
+}
+
+.ventana-contenido {
+    position: relative;
+    display: flex;
+    gap: 30px;
+    width: 900px;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: var(--blanco);
+    border: 2px solid var(--naranja);
+    border-radius: 12px;
+    transform: scale(0.3);
+    transition: transform 0.4s;
+}
+
+.ventana-emergente.abierto .ventana-contenido {
+    transform: scale(1);
+}
+
+.ventana-imagen {
+    width: 50%;
+    object-fit: contain;
+}
+
+.ventana-info {
+    width: 50%;
+}
+
+.ventana-info h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: var(--naranja);
+}
+
+.ventana-info p {
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.ventana-info ul {
+    list-style: none;
+}
+
+.ventana-info li {
+    margin-bottom: 10px;
+}
+
+.ventana-cerrar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: var(--blanco);
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.ventana-cerrar:hover {
+    color: var(--naranja);
+}
